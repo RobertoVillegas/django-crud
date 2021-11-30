@@ -1,0 +1,16 @@
+{% load crispy_forms_tags %}
+<form method="post" data-url="{% url 'marcaDelete' marca.id %}" class="marca-delete-form">
+  {% csrf_token %}
+  <div class="modal-header">
+    <h5 class="modal-title">Eliminar Marca</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  </div>
+  <div class="modal-body">
+    <p class="lead">¿Estás seguro que quieres eliminar esta marca?</p>
+    <strong>{{marca.marca_nombre}}</strong>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+  </div>
+</form>

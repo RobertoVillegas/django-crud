@@ -1,0 +1,123 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<h1>Catálogos</h1>
+<div class="mt-4">
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <a
+        class="nav-link active"
+        id="home-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#marca"
+        href="#marca"
+        type="button"
+        role="tab"
+        aria-controls="home"
+        aria-selected="true"
+      >
+        Marcas
+      </a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a
+        class="nav-link"
+        id="profile-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#presentacion"
+        href="#presentacion"
+        type="button"
+        role="tab"
+        aria-controls="profile"
+        aria-selected="false"
+      >
+        Presentaciones
+      </a>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <!-- Marcas -->
+    <div class="tab-pane fade show active" id="marca" role="tabpanel" aria-labelledby="home-tab">
+      <div>
+        <p class="mt-4 text-end">
+          <button class="btn btn-primary show-marca-form" data-url="{% url 'marcaCreate' %}">
+            Nueva Marca
+          </button>
+        </p>
+        <table class="table table-striped mt-1" id="marca-table">
+          <thead>
+            <tr>
+              <th scope="col">Nombre</th>
+              <th scope="col">
+                <div class="d-flex justify-content-center">Editar</div>
+              </th>
+              <th scope="col">
+                <div class="d-flex justify-content-center">Borrar</div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {% include 'marca_lista.html' %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <!-- Presentaciones -->
+    <div class="tab-pane fade" id="presentacion" role="tabpanel" aria-labelledby="profile-tab">
+      <div>
+        <p class="mt-4 text-end">
+          <button
+            class="btn btn-primary show-presentacion-form"
+            data-url="{% url 'presentacionCreate' %}"
+          >
+            Nueva Presentación
+          </button>
+        </p>
+        <table class="table table-striped mt-1" id="presentacion-table">
+          <thead>
+            <tr>
+              <th scope="col">Presentación</th>
+              <th scope="col">
+                <div class="d-flex justify-content-center">Editar</div>
+              </th>
+              <th scope="col">
+                <div class="d-flex justify-content-center">Borrar</div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {% include 'presentacion_lista.html' %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Marca -->
+<div class="modal fade" id="modal-marca">
+  <div class="modal-dialog">
+    <div class="modal-content"></div>
+  </div>
+</div>
+
+<!-- Modal Marca -->
+<div class="modal fade" id="modal-presentacion">
+  <div class="modal-dialog">
+    <div class="modal-content"></div>
+  </div>
+</div>
+
+<!-- Scripts -->
+<script
+  type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+  crossorigin="anonymous"
+></script>
+<script
+  type="text/javascript"
+  src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+></script>
+<script src="{% static 'crud/js/tabs.js' %}"></script>
+<script src="{% static 'crud/js/marcaAjax.js' %}"></script>
+<script src="{% static 'crud/js/presentacionAjax.js' %}"></script>
+{% endblock content %}

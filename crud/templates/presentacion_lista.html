@@ -1,0 +1,30 @@
+<!-- Content generated with js -->
+{% for presentacion in presentaciones %}
+<tr>
+  <td class="align-middle">{{presentacion.presentacion_nombre}}</td>
+
+  <!-- Botón para editar -->
+  <td class="text-center">
+    <button
+      class="btn btn-warning show-presentacion-form-update"
+      data-url="{% url 'presentacionUpdate' presentacion.id%}"
+    >
+      <i class="fa fa-pencil"></i>
+    </button>
+  </td>
+
+  <!-- Botón para borrar -->
+  <td class="text-center">
+    <button
+      class="btn btn-danger show-presentacion-form-delete"
+      data-url="{% url 'presentacionDelete' presentacion.id%}"
+    >
+      <i class="fa fa-trash"></i>
+    </button>
+  </td>
+</tr>
+{% empty %}
+<tr>
+  <td colspan="4" class="text-center bg-warning">No hay presentaciones</td>
+</tr>
+{% endfor %}

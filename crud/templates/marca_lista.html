@@ -1,0 +1,30 @@
+<!-- Content generated with js -->
+{% for marca in marcas %}
+<tr>
+  <td class="align-middle">{{marca.marca_nombre}}</td>
+
+  <!-- Botón para editar -->
+  <td class="text-center">
+    <button
+      class="btn btn-warning show-marca-form-update"
+      data-url="{% url 'marcaUpdate' marca.id%}"
+    >
+      <i class="fa fa-pencil"></i>
+    </button>
+  </td>
+
+  <!-- Botón para borrar -->
+  <td class="text-center">
+    <button
+      class="btn btn-danger show-marca-form-delete"
+      data-url="{% url 'marcaDelete' marca.id%}"
+    >
+      <i class="fa fa-trash"></i>
+    </button>
+  </td>
+</tr>
+{% empty %}
+<tr>
+  <td colspan="4" class="text-center bg-warning">No hay marcas</td>
+</tr>
+{% endfor %}

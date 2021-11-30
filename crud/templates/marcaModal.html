@@ -1,0 +1,46 @@
+{% load crispy_forms_tags %}
+<div>
+  <div
+    class="modal fade"
+    id="marcaModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Nueva marca</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form action="/registrarMarca/" method="POST">
+            {% csrf_token %}
+            <div class="form-group mb-3">
+              <input
+                type="text"
+                id="txtMarca"
+                name="txtMarca"
+                class="form-control"
+                placeholder="Nombre de la marca"
+                maxlength="50"
+                required
+              />
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                Cerrar
+              </button>
+              <button type="submit" class="btn btn-primary">Registrar marca</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

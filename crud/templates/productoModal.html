@@ -1,0 +1,65 @@
+<div>
+  <div
+    class="modal fade"
+    id="productoModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Nuevo producto</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form action="/registrarProducto/" method="POST">
+            {% csrf_token %}
+            <div class="form-group mb-3">
+              <select class="form-select" aria-label="Default select example">
+                <option selected>Selecciona una marca</option>
+                {% for marca in marcas %}
+                <option value="{{marca.id}}" id="txtMarca" name="txtMarca">
+                  {{marca.marca_nombre}}
+                </option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="form-group mb-3">
+              <select class="form-select" aria-label="Default select example">
+                <option selected>Selecciona una presentacion</option>
+                {% for presentacion in presentaciones %}
+                <option value="{{presentacion.id}}" id="txtPresentacion" name="txtPresentacion">
+                  {{presentacion.presentacion_nombre}}
+                </option>
+                {% endfor %}
+              </select>
+            </div>
+            <div class="form-group input-group mb-3">
+              <span class="input-group-text">$</span>
+              <input
+                id="intPrecio"
+                name="intPrecio"
+                type="number"
+                class="form-control required"
+                aria-label="Amount (to the nearest dollar)"
+              />
+              <span class="input-group-text">.00</span>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                Cerrar
+              </button>
+              <button type="submit" class="btn btn-primary">Añadir producto</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

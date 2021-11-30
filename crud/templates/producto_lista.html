@@ -1,0 +1,32 @@
+<!-- Content generated with js -->
+{% for producto in productos %}
+<tr>
+  <td class="align-middle">{{producto.marca}}</td>
+  <td class="align-middle">{{producto.presentacion}}</td>
+  <td class="align-middle">${{producto.producto_precio}}</td>
+
+  <!-- Botón para editar -->
+  <td class="text-center">
+    <button
+      class="btn btn-warning show-producto-form-update"
+      data-url="{% url 'productoUpdate' producto.id%}"
+    >
+      <i class="fa fa-pencil"></i>
+    </button>
+  </td>
+
+  <!-- Botón para borrar -->
+  <td class="text-center">
+    <button
+      class="btn btn-danger show-producto-form-delete"
+      data-url="{% url 'productoDelete' producto.id%}"
+    >
+      <i class="fa fa-trash"></i>
+    </button>
+  </td>
+</tr>
+{% empty %}
+<tr>
+  <td colspan="5" class="text-center bg-warning">No hay productos</td>
+</tr>
+{% endfor %}
