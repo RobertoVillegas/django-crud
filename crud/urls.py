@@ -1,5 +1,5 @@
-from . import views
 from django.urls import path
+from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
@@ -13,8 +13,12 @@ urlpatterns = [
     path('marca/<id>', views.marcaDetails, name="marcaDetails"),
     path('marca/<id>/update', views.marcaUpdate, name="marcaUpdate"),
     path('marca/<id>/delete', views.marcaDelete, name="marcaDelete"),
-    path('presentacion/create', views.presentacionCreate, name='presentacionCreate'),
-    path('presentacion/<id>', views.presentacionDetails, name="presentacionDetails"),
-    path('presentacion/<id>/update', views.presentacionUpdate, name="presentacionUpdate"),
-    path('presentacion/<id>/delete', views.presentacionDelete, name="presentacionDelete"),
+    path('presentacion/create', views.presentacionCreate,
+         name='presentacionCreate'),
+    path('presentacion/<id>', views.presentacionDetails,
+         name="presentacionDetails"),
+    path('presentacion/<id>/update',
+         views.presentacionUpdate, name="presentacionUpdate"),
+    path('presentacion/<id>/delete',
+         views.presentacionDelete, name="presentacionDelete"),
 ]

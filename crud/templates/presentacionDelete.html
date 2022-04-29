@@ -7,14 +7,21 @@
   {% csrf_token %}
   <div class="modal-header">
     <h5 class="modal-title">Eliminar Presentación</h5>
-    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="modal"
+      aria-label="Close"
+    ></button>
   </div>
   <div class="modal-body">
     <p class="lead">¿Estás seguro que quieres eliminar esta presentación?</p>
     <strong>{{presentacion.presentacion_nombre}}</strong>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+      Cancelar
+    </button>
     <button type="submit" class="btn btn-danger">Eliminar</button>
   </div>
 </form>

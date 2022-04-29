@@ -34,7 +34,11 @@
               <select class="form-select" aria-label="Default select example">
                 <option selected>Selecciona una presentacion</option>
                 {% for presentacion in presentaciones %}
-                <option value="{{presentacion.id}}" id="txtPresentacion" name="txtPresentacion">
+                <option
+                  value="{{presentacion.id}}"
+                  id="txtPresentacion"
+                  name="txtPresentacion"
+                >
                   {{presentacion.presentacion_nombre}}
                 </option>
                 {% endfor %}
@@ -52,10 +56,16 @@
               <span class="input-group-text">.00</span>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
                 Cerrar
               </button>
-              <button type="submit" class="btn btn-primary">Añadir producto</button>
+              <button type="submit" class="btn btn-primary">
+                Añadir producto
+              </button>
             </div>
           </form>
         </div>
