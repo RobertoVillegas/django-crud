@@ -1,4 +1,4 @@
-let ShowForm = function () {
+let ShowMarcaForm = function () {
   let btn = $(this);
   $.ajax({
     url: btn.attr('data-url'),
@@ -13,7 +13,7 @@ let ShowForm = function () {
   });
 };
 
-let SaveForm = function () {
+let SaveMarcaForm = function () {
   let form = $(this);
   $.ajax({
     url: form.attr('data-url'),
@@ -33,13 +33,13 @@ let SaveForm = function () {
 };
 
 // Create
-$('.show-marca-form').click(ShowForm);
-$('#modal-marca').on('submit', '.marca-create-form', SaveForm);
+$('.show-marca-form').click(ShowMarcaForm);
+$('#modal-marca').on('submit', '.marca-create-form', SaveMarcaForm);
 
 //Update
-$('#marca-table').on('click', '.show-marca-form-update', ShowForm);
-$('#modal-marca').on('submit', '.marca-update-form', SaveForm);
+$('#marca-table').on('click', '.show-marca-form-update', ShowMarcaForm);
+$('#modal-marca').on('submit', '.marca-update-form', SaveMarcaForm);
 
 // Delete
-$('#marca-table').on('click', '.show-marca-form-delete', ShowForm);
-$('#modal-marca').on('submit', '.marca-delete-form', SaveForm);
+$('#marca-table').on('click', '.show-marca-form-delete', ShowMarcaForm);
+$('#modal-marca').on('submit', '.marca-delete-form', SaveMarcaForm);

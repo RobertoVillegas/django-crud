@@ -1,4 +1,4 @@
-let ShowForm = function () {
+let ShowPresentacionForm = function () {
   let btn = $(this);
   $.ajax({
     url: btn.attr('data-url'),
@@ -13,7 +13,7 @@ let ShowForm = function () {
   });
 };
 
-let SaveForm = function () {
+let SavePresentacionForm = function () {
   let form = $(this);
   $.ajax({
     url: form.attr('data-url'),
@@ -33,21 +33,33 @@ let SaveForm = function () {
 };
 
 // Create
-$('.show-presentacion-form').click(ShowForm);
-$('#modal-presentacion').on('submit', '.presentacion-create-form', SaveForm);
+$('.show-presentacion-form').click(ShowPresentacionForm);
+$('#modal-presentacion').on(
+  'submit',
+  '.presentacion-create-form',
+  SavePresentacionForm
+);
 
 //Update
 $('#presentacion-table').on(
   'click',
   '.show-presentacion-form-update',
-  ShowForm
+  ShowPresentacionForm
 );
-$('#modal-presentacion').on('submit', '.presentacion-update-form', SaveForm);
+$('#modal-presentacion').on(
+  'submit',
+  '.presentacion-update-form',
+  SavePresentacionForm
+);
 
 // Delete
 $('#presentacion-table').on(
   'click',
   '.show-presentacion-form-delete',
-  ShowForm
+  ShowPresentacionForm
 );
-$('#modal-presentacion').on('submit', '.presentacion-delete-form', SaveForm);
+$('#modal-presentacion').on(
+  'submit',
+  '.presentacion-delete-form',
+  SavePresentacionForm
+);
