@@ -1,26 +1,26 @@
-let ShowPresentacionForm = function () {
+let ShowPresentacionForm = () => {
   let btn = $(this);
   $.ajax({
     url: btn.attr('data-url'),
     type: 'get',
     dataType: 'json',
-    beforeSend: function () {
+    beforeSend: () => {
       $('#modal-presentacion').modal('show');
     },
-    success: function (data) {
+    success: (data) => {
       $('#modal-presentacion .modal-content').html(data.html_form);
     },
   });
 };
 
-let SavePresentacionForm = function () {
+let SavePresentacionForm = () => {
   let form = $(this);
   $.ajax({
     url: form.attr('data-url'),
     data: form.serialize(),
     type: form.attr('method'),
     dataType: 'json',
-    success: function (data) {
+    success: (data) => {
       if (data.form_is_valid) {
         $('#presentacion-table tbody').html(data.catalogo);
         $('#modal-presentacion').modal('hide');

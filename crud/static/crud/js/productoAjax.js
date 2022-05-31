@@ -1,26 +1,26 @@
-let ShowForm = function () {
+let ShowForm = () => {
   let btn = $(this);
   $.ajax({
     url: btn.attr('data-url'),
     type: 'get',
     dataType: 'json',
-    beforeSend: function () {
+    beforeSend: () => {
       $('#modal-producto').modal('show');
     },
-    success: function (data) {
+    success: (data) => {
       $('#modal-producto .modal-content').html(data.html_form);
     },
   });
 };
 
-let SaveForm = function () {
+let SaveForm = () => {
   let form = $(this);
   $.ajax({
     url: form.attr('data-url'),
     data: form.serialize(),
     type: form.attr('method'),
     dataType: 'json',
-    success: function (data) {
+    success: (data) => {
       if (data.form_is_valid) {
         $('#producto-table tbody').html(data.producto);
         $('#modal-producto').modal('hide');

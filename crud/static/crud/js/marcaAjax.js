@@ -1,10 +1,10 @@
-let ShowMarcaForm = function () {
+let ShowMarcaForm = () => {
   let btn = $(this);
   $.ajax({
     url: btn.attr('data-url'),
     type: 'get',
     dataType: 'json',
-    beforeSend: function () {
+    beforeSend: () => {
       $('#modal-marca').modal('show');
     },
     success: function (data) {
@@ -13,14 +13,14 @@ let ShowMarcaForm = function () {
   });
 };
 
-let SaveMarcaForm = function () {
+let SaveMarcaForm = () => {
   let form = $(this);
   $.ajax({
     url: form.attr('data-url'),
     data: form.serialize(),
     type: form.attr('method'),
     dataType: 'json',
-    success: function (data) {
+    success: (data) => {
       if (data.form_is_valid) {
         $('#marca-table tbody').html(data.catalogo);
         $('#modal-marca').modal('hide');
